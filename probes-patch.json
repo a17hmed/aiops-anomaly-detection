@@ -1,0 +1,30 @@
+{
+  "spec": {
+    "template": {
+      "spec": {
+        "containers": [
+          {
+            "name": "aiops-anomaly-api",
+            "image": "shark17/aiops-anomaly-api:latest",
+            "livenessProbe": {
+              "httpGet": {
+                "path": "/healthz",
+                "port": 8000
+              },
+              "initialDelaySeconds": 20,
+              "periodSeconds": 10
+            },
+            "readinessProbe": {
+              "httpGet": {
+                "path": "/healthz",
+                "port": 8000
+              },
+              "initialDelaySeconds": 10,
+              "periodSeconds": 5
+            }
+          }
+        ]
+      }
+    }
+  }
+}
